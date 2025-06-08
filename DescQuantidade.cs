@@ -6,14 +6,18 @@ using System.Threading.Tasks;
 
 namespace p2
 {
-  internal class DescQuantidade : IDescStrategy
-  {
-    public decimal Calcular(ItemPedido item)
+    internal class DescQuantidade
     {
-      if (item.Quantidade >= 5)
-      return item.CalcularValorTotal() *0.2m;
-      return 0;
     }
-  }
-  
+    public class DescontoPorQuantidade : IDescStrategy
+    {
+        public decimal Calcular(ItemPedido item)
+        {
+            if (item.Quantidade >= 5)
+                return item.CalcularValorTotal() * 0.2m;
+
+            return 0;
+        }
+    }
+
 }
