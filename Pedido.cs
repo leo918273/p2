@@ -19,5 +19,17 @@ public Pedido(int id, Cliente cliente, List<ItemPedido> itens, DateTime data)
     Itens = itens;
     Data = data;
 }
+    public void CalcularTotal(List<IDescStrategy> estrategias)
+    {
+        decimal total = 0;
 
+        foreach (var item in Itens)
+        {
+            var desconto = estrategias.Sum(e => e.Calcular(item));
+            total += item.CalcularValorTotal() - desconto;
+        }
+
+        Total = total;
+    }
+}
 }
