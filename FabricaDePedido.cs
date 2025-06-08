@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace p2
 {
-  public class FabricaDePedido
-  {
-    public Pedido CriarPedido(int id, Cliente cliente, List<ItemPedido> itens)
+    public class FabricaDePedido
     {
-      return new Pedido(id, cliente, itens, DateTime.Now);
+        public Pedido CriarPedido(int id, Cliente cliente, List<ItemPedido> itens)
+        {
+            return new Pedido(id, cliente, itens, DateTime.Now);
+        }
     }
-      
-  }
+
 }
