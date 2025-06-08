@@ -22,7 +22,7 @@ public class Program
         var pedido = fabricaPedido.CriarPedido(1, cliente, itensPedido);
 
         var repositorioPedido = new RepositorioPedido();
-        var logger = new ConsoleLogger();
+        var logger = new ConsoleLog();
         var estrategiasDesconto = new List<IDescStrategy> { new DescCategoria(), new DescontoPorQuantidade() };
 
         var servicoPedido = new ServicoPedido(repositorioPedido, logger, estrategiasDesconto);
