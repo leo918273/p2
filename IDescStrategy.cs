@@ -8,7 +8,7 @@ namespace p2
 {
 public interface IDescStrategy
     {
-
+        decimal Calcular(itemPedido item);
     }
 
 }
