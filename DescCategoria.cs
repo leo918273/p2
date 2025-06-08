@@ -11,7 +11,7 @@ namespace p2
     public decimal Calcular(ItemPedido item)
     {
       if (item.Produto.Categoria == "eletronico")
-        return item.CalcularValorTotal() * 0.1m
+        return item.CalcularValorTotal() * 0.1m;
         return 0;
     }
   }
