@@ -16,6 +16,20 @@ public class Program
             new ItemPedido(produto1, 1),
             new ItemPedido(produto2, 3)
         };
-      
-  }
+
+        var fabricaPedido = new FabricaDePedido();
+        var pedido = fabricaPedido.CriarPedido(1, cliente, itensPedido);
+
+        var repositorioPedido = new RepositorioPedido();
+        var logger = new ConsoleLog();
+        var estrategiaDesconto = new List<IDescStrategy> { new DescCategoria(), new DescQuantidade() };
+
+        var servicoPedido = new ServicoPedido(repositorioPedido, logger, estrategiaDesconto);
+        servicoPedido.ProcessarPedido(pedido);
+
+        foreach (var p in repositorioPedido.ListarTodos())
+        {
+            Console.WriteLine($"Pedido {p.Id} - Cliente: {p.Cliente.Nome} - Total: R${p.Total:F2}");
+        }
+    }
 }
